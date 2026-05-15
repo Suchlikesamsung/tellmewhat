@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tell Me What</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="intro" aria-labelledby="title">
+        <p class="volume">Tell Me What · Vol. I</p>
+        <h1 id="title">taken.</h1>
+        <p id="lead" class="lead">당신은 이 페이지를 열었습니다. 권한 요청은 없었습니다.</p>
+        <p id="sublead" class="sublead">그래도 브라우저는 이미 몇 가지를 말했습니다.</p>
+      </header>
+
+      <section id="setup" class="setup" aria-live="polite">
+        <p id="setup-line">잠시만요.</p>
+      </section>
+
+      <div id="reveal-content" class="concealed">
+        <section class="reader" aria-live="polite">
+          <p id="reading-state" class="reading">reading</p>
+          <ol id="observations" class="observations"></ol>
+        </section>
+
+        <section class="fingerprint" aria-label="브라우저 지문">
+          <div>
+            <p id="fingerprint-label" class="small-label">computed in your browser</p>
+            <h2 id="fingerprint-title">your barcode</h2>
+          </div>
+          <div id="barcode" class="barcode" aria-hidden="true"></div>
+          <p id="fingerprint-note" class="note">
+            같은 브라우저 신호는 같은 줄무늬를 만듭니다. 서버로 전송하지 않습니다.
+          </p>
+        </section>
+
+        <section class="confession" aria-labelledby="confession-title">
+          <p id="confession-label" class="small-label">sources & confessions</p>
+          <h2 id="confession-title">이 페이지가 쓴 것</h2>
+          <p id="confession-copy">
+            IP 기반 대략 위치, 브라우저 API, 화면 정보, 언어와 시간대, WebGL 그래픽
+            힌트, 설치 폰트 추정, 캔버스 렌더링 해시를 사용했습니다. 카메라, 마이크,
+            정확한 GPS 위치, 클립보드, 파일은 요청하지 않았습니다.
+          </p>
+          <button id="rescan" type="button">다시 읽기</button>
+        </section>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

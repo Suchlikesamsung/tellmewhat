@@ -1,0 +1,277 @@
+:root {
+  --paper: #f4efe5;
+  --ink: #16120d;
+  --soft-ink: #5c554b;
+  --hairline: rgba(22, 18, 13, 0.18);
+  --mark: #9c3328;
+  --quiet: #ded5c5;
+  --panel: rgba(255, 251, 242, 0.48);
+  color-scheme: light;
+}
+
+body.theme-dark {
+  --paper: #11110f;
+  --ink: #f0eadf;
+  --soft-ink: #b9ad9b;
+  --hairline: rgba(240, 234, 223, 0.18);
+  --mark: #e06b5f;
+  --quiet: #24211d;
+  --panel: rgba(28, 27, 24, 0.72);
+  color-scheme: dark;
+}
+
+body.theme-light {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background:
+    linear-gradient(var(--quiet) 1px, transparent 1px),
+    radial-gradient(circle at 70% 12%, color-mix(in srgb, var(--mark) 18%, transparent), transparent 24rem),
+    var(--paper);
+  background-size: 100% 28px, auto, auto;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  transition: background-color 900ms ease, color 900ms ease;
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 56px 0 80px;
+}
+
+.intro {
+  min-height: 46vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 34px;
+}
+
+.volume,
+.small-label {
+  margin: 0;
+  color: var(--mark);
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 18px 0 0;
+  font-size: clamp(4rem, 16vw, 9.8rem);
+  font-weight: 500;
+  line-height: 0.86;
+  letter-spacing: 0;
+}
+
+.scrambling {
+  color: var(--mark);
+}
+
+.lead {
+  max-width: 620px;
+  margin: 34px 0 0;
+  font-size: clamp(1.35rem, 4vw, 2.15rem);
+  line-height: 1.25;
+}
+
+.sublead {
+  margin: 12px 0 0;
+  color: var(--soft-ink);
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.setup {
+  min-height: 26vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.setup p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 4.6vw, 2.7rem);
+  line-height: 1.2;
+}
+
+.setup p.switching {
+  color: var(--mark);
+}
+
+.concealed {
+  display: none;
+}
+
+.concealed.visible {
+  display: block;
+  animation: reveal 700ms ease both;
+}
+
+.reader {
+  padding: 42px 0 28px;
+}
+
+.reading {
+  margin: 0 0 28px;
+  color: var(--soft-ink);
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.92rem;
+}
+
+.reading::after {
+  content: "";
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s steps(1) infinite;
+}
+
+.observations {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.observations li {
+  border-top: 1px solid var(--hairline);
+  padding: 24px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: reveal 600ms ease forwards;
+}
+
+.observations li:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.observations strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1.18;
+}
+
+.observations span {
+  color: var(--soft-ink);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.fingerprint,
+.confession {
+  margin-top: 34px;
+  border: 1px solid var(--hairline);
+  background: var(--panel);
+  padding: 24px;
+}
+
+.fingerprint {
+  display: grid;
+  gap: 20px;
+}
+
+h2 {
+  margin: 8px 0 0;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.barcode {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(4px, 1fr));
+  align-items: end;
+  gap: 5px;
+  height: 120px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.barcode span {
+  display: block;
+  min-height: 12px;
+  background: var(--ink);
+}
+
+.note,
+.confession p {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.confession button {
+  min-height: 42px;
+  margin-top: 22px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  padding: 0 18px;
+  cursor: pointer;
+}
+
+.confession button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    content: ".";
+  }
+  50%,
+  74% {
+    content: "..";
+  }
+  75%,
+  100% {
+    content: "...";
+  }
+}
+
+@media (max-width: 620px) {
+  .page {
+    width: min(100% - 24px, 760px);
+    padding-top: 34px;
+  }
+
+  .intro {
+    min-height: 42vh;
+  }
+
+  .fingerprint,
+  .confession {
+    padding: 18px;
+  }
+}
